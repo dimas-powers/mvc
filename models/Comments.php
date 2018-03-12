@@ -17,7 +17,7 @@ class Comments
                 print "Error!: " . $e->getMessage() . "<br/>";
                 die();
             }
-            $result = $db->query('SELECT * FROM comment WHERE id =' . $id);
+            $result = $db->query('SELECT * FROM news WHERE id =' . $id);
             $result->setFetchMode(PDO::FETCH_ASSOC);
             $commentsItem = $result->fetch();
             return $commentsItem;
@@ -37,13 +37,13 @@ class Comments
             die();
         }
             $commentsList = array();
-            $result = $db->query('SELECT * FROM comment ORDER BY date DESC LIMIT 10');
+            $result = $db->query('SELECT * FROM news ORDER BY date DESC LIMIT 10');
             $i = 0;
+
             while ($row = $result->fetch()) {
                 $commentsList[$i]['id'] = $row['id'];
-                $commentsList[$i]['email'] = $row['email'];
                 $commentsList[$i]['date'] = $row['date'];
-                $commentsList[$i]['text_message'] = $row['text_message'];
+                $commentsList[$i]['content'] = $row['content'];
                 $commentsList[$i]['author_name'] = $row['author_name'];
                 $commentsList[$i]['preview'] = $row['preview'];
                 $i++;

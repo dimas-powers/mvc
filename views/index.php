@@ -29,10 +29,9 @@
                         <div class="post">
                             <h2 class="title"><a href='/comments/<?php echo $commentsItem['id'] ;?>'><?php echo $commentsItem['author_name'].' # '.$commentsItem['id'];?></a></h2>
                             <p class="meta">Posted on <?php echo $commentsItem['date'];?></p>
-                            <p class="meta">E-mail: <?php echo $commentsItem['email'];?></p>
                                 <div class="entry">
                                     <p><img src="<?php echo $commentsItem['preview'];?>" width="320" height="240" alt="" /></p>
-                                    <p><?php echo $commentsItem['text_message'];?></p>
+                                    <p><?php echo $commentsItem['preview'];?></p>
                                 </div>
                         </div>
                     <?php endforeach;?>
